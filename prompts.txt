@@ -1,0 +1,38 @@
+DeepSeek:
+    - Act as a Project Manager with 30 years of experience and break this
+    pdf down into micro instructions(prompts).
+
+ChatGPT:
+    - Act like a Java Developer with 30 years of experience and help me
+    understand the syntax of this file. How can i add new functionalitise
+    to it?
+
+Cursor:
+    - Problem Exploration Phase
+    - The Wrangler parser needs to handle '10KB'-style values. Where in the 
+    codebase should I add support for byte size units? I see NumberToken exists - should I follow that pattern?
+    - For time durations like '150ms', would extending the lexer in 
+    Directives.g4 conflict with existing number parsing? Need to check 
+    how STRING and NUMBER tokens are defined.
+    - Found Token.java - looks like new unit types need to implement parse 
+    logic in their own classes. How do ByteSize/TimeDuration differ from
+    NumberToken in implementation?
+    - Stuck on ANTLR grammar: added BYTE_SIZE token but getting conflicts.
+    How do I properly structure fragments for units (KB/MB) without 
+    breaking existing rules?
+    - Testing byte parsing: should '10kb' (lowercase) be valid? The spec 
+    isn't clear - what's the project's convention for unit case sensitivity?
+    - For AggregateStatsDirective, how does ExecutorContext handle row 
+    batches? Need to see how GroupByAggregate stores intermediate values.
+    - ANTLR generates parser code but throws errors on '10MB' values. 
+    Are my lexer priorities wrong? Here's the relevant 
+    grammar snippet: <snippet>
+    - ByteSizeTest fails on decimal values ('1.5MB') - should we support 
+    floats or enforce integers like other tokens do?
+    - Integration test fails with 'Unknown token BYTE_SIZE' - did I miss 
+    registering the token type somewhere in Token.java?
+    - Check my code against the style guide in this codebase and make the
+    necessary changes.
+
+Gemini:
+    - Research what causes <error message> error and ways to resolve it

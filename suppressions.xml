@@ -32,4 +32,8 @@
 
   <suppress checks="RedundantModifier" files=".*[/\\]src[/\\]test[/\\]java[/\\].*" />
 
+  <!-- Suppress all checks for specific files -->
+  <suppress checks=".*" files="prompts\.txt" />
+  <suppress checks=".*" files="Zeotap Assignment\.pdf" />
+
 </suppressions>
